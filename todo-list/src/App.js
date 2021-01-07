@@ -12,20 +12,13 @@ function App() {
   ]);
   const [task, setTask] = useState([]);
   let currentTask = (e, id) => {
-    const index = todo.findIndex(item => item.id === id);
-    const todos = {...todo[index]};
-    todos.text = e.target.value;
     const copyTask = [...task];     
     copyTask[0] = e.target.value;
     setTask(copyTask);
   };
   let addTodo = (e, id) => {
     const copyTask = [...task]; 
-    const index = todo.findIndex(item => item.id === id);
-    const todos = {...todo[index]};
-    todos.text = e.target.value;
-    const copyTodo = [...todo];      
-    copyTodo[index] = todos;      
+    const copyTodo = [...todo];     
     copyTodo.push({id: uuidv4(), text: copyTask[0]});
     setTodos(copyTodo);
   };
